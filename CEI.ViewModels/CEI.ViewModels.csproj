@@ -36,10 +36,23 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\CEI.IOC\CEI.IOC.csproj">
+      <Project>{8ec3e3dd-81a3-4458-8d74-c2de6f74c6d1}</Project>
+      <Name>CEI.IOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CEI.Models\CEI.Models.csproj">
+      <Project>{9542731d-5f53-4697-86f5-a4913d1ee431}</Project>
+      <Name>CEI.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CEI.Services\CEI.Services.csproj">
+      <Project>{4921cebc-9cf4-44dd-a532-fcb63a36c092}</Project>
+      <Name>CEI.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrosweViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

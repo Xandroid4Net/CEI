@@ -46,6 +46,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IUIDispatcher.cs" />
     <Compile Include="Navigation\AbstractNavigationService.cs" />
     <Compile Include="ApiService.cs" />
     <Compile Include="Navigation\Page.cs" />

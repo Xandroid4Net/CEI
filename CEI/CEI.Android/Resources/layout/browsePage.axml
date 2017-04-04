@@ -19,16 +19,11 @@
         android:textColor="@color/white"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_marginBottom="2dp" />
-    <!--<android.support.v7.widget.RecyclerView
+    <android.support.v7.widget.RecyclerView
       android:id="@+id/topRated"
       android:scrollbars="horizontal"
       android:layout_width="fill_parent"
-      android:layout_height="fill_parent" />-->
-    <ImageView
-          android:layout_width="wrap_content"
-          android:layout_height="fill_parent"
-          android:src="@drawable/i"
-          style="@style/boderedImage" />
+      android:layout_height="fill_parent" />
   </LinearLayout>
   <LinearLayout
       android:layout_height="0dp"

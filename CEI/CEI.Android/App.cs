@@ -30,6 +30,7 @@ namespace CEI.Droid
             new UIApplication().Initialize(() =>
             {
                 Locator.Register<INavigationService>(new NavigationService());
+                Locator.Register<IImageService>(new ImageService());
                 //Locator.Register<IUIDispatcher>(new UIDispatcher());
             });
 

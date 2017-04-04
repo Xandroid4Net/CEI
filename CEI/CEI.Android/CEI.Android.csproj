@@ -56,13 +56,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\ItemAdapter.cs" />
     <Compile Include="App.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\BrowsePage.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ImageService.cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\UIDispatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -71,6 +74,9 @@
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\toolbar.axml" />
     <AndroidResource Include="Resources\layout\browsePage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\itemview.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -137,6 +143,21 @@
       <Project>{cd2f2d55-dc06-45b8-955a-37a0158cbb48}</Project>
       <Name>CEI.ViewModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_local_movies_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_local_movies_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_local_movies_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_local_movies_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_local_movies_white_24dp.png" />
   </ItemGroup>
   <Import Project="..\CEI\CEI.projitems" Label="Shared" Condition="Exists('..\CEI\CEI.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

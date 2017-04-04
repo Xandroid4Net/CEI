@@ -13,20 +13,21 @@ using CEI.IOC;
 using CEI.Services.Navigation;
 using CEI.Droid.Services;
 using CEI.Droid.Pages;
+using CEI.Services;
 
 namespace CEI.Droid
 {
     [Activity(Label = "CEI.Android", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/MyTheme", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity
     {
-        private bool isPaused = false;
+        public bool isPaused = false;
         private Toolbar toolbar;
-        private RecyclerView topRated;
         private FrameLayout navigationFrame;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            Locator.Register<IUIDispatcher>(new UIDispatcher(this));
             SetContentView(Resource.Layout.Main);
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);

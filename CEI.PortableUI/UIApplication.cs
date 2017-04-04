@@ -1,4 +1,5 @@
 ﻿using CEI.IOC;
+using CEI.Services;
 using CEI.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ namespace CEI.PortableUI
         public void Initialize(Action createDependentServices)
         {
             createDependentServices.Invoke();
+            var service = new ApiService();
+            Locator.Register<IApiService>(service);
         }
     }
 }

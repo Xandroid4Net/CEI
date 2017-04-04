@@ -20,14 +20,14 @@ namespace CEI.Services
         Task<MovieResponse> GetTopRated(int page, string region = "US", string language = "en-US", string sortBy = "popularity.des");
         Task<MovieResponse> GetSimilar(int page, int movieId, string language = "en-US");
         Task<VideoResponse> GetVideos(int movieId, string language = "en-US");
-
+        Task<string> GetImageUrl(string imageName);
     }
     public class ApiService : IApiService
     {
+        private bool initialized = false;
         private string apiKey;
         private string baseUrl;
         public Configuration Config { get; private set; }
-        const string NowPlayingEndpoint = "http://api.themoviedb.org/3/movie/now_playing?api_key=ab41356b33d100ec61e6c098ecc92140&sort_by=popularity.des";
 
         private string GetMoviesEndpoint(string endpoint, int page, string region, string language, string sortBy)
         {
@@ -47,21 +47,21 @@ namespace CEI.Services
         private async Task<string> GetMoviesJson(string endPoint, int page, string region, string language, string sortBy)
         {
             var path = GetMoviesEndpoint(endPoint, page, region, language, sortBy);
-            var json = await Get(path);
+            var json = await Get(path).ConfigureAwait(false);
             return json;
         }
 
         private async Task<string> GetMovieJson(string endPoint, int page, string language, int id)
         {
             var path = GetMovieEndpoint(endPoint, id, language, page);
-            var json = await Get(path);
+            var json = await Get(path).ConfigureAwait(false);
             return json;
         }
 
         private async Task<string> GetVideoJson(int id, string language)
         {
             var path = GetVideoEndpoint(id, language);
-            var json = await Get(path);
+            var json = await Get(path).ConfigureAwait(false);
             return json;
         }
 
@@ -69,7 +69,8 @@ namespace CEI.Services
         {
             try
             {
-                var json = await GetMoviesJson("now_playing", page, region, language, sortBy);
+                await InitializeIfNeeded().ConfigureAwait(false);
+                var json = await GetMoviesJson("now_playing", page, region, language, sortBy).ConfigureAwait(false);
                 return JsonConvert.DeserializeObject<NowPlayingResponse>(json);
             }
             catch (Exception ex)
@@ -83,7 +84,7 @@ namespace CEI.Services
         /// </summary>
         private async Task<MovieResponse> GetMoviesResults(string endPoint, int page, string region, string language, string sortBy)
         {
-            var json = await GetMoviesJson(endPoint, page, region, language, sortBy);
+            var json = await GetMoviesJson(endPoint, page, region, language, sortBy).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<MovieResponse>(json);
         }
 
@@ -92,19 +93,19 @@ namespace CEI.Services
         /// </summary>
         private async Task<MovieResponse> GetMovieResults(string endPoint, int page, int id, string language)
         {
-            var json = await GetMovieJson(endPoint, id, language, page);
+            var json = await GetMovieJson(endPoint, id, language, page).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<MovieResponse>(json);
         }
 
         private async Task<MovieResponse> GetSimilarResults(int page, int id, string language)
         {
-            var json = await GetMovieJson("similar", page, language, id);
+            var json = await GetMovieJson("similar", page, language, id).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<MovieResponse>(json);
         }
 
         private async Task<VideoResponse> GetVideoResults(int id, string language)
         {
-            var json = await GetVideoJson(id, language);
+            var json = await GetVideoJson(id, language).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<VideoResponse>(json);
         }
 
@@ -112,7 +113,8 @@ namespace CEI.Services
         {
             try
             {
-                return await GetMoviesResults("popular", page, region, language, sortBy);
+                await InitializeIfNeeded().ConfigureAwait(false);
+                return await GetMoviesResults("popular", page, region, language, sortBy).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -125,7 +127,8 @@ namespace CEI.Services
         {
             try
             {
-                return await GetMoviesResults("top_rated", page, region, language, sortBy);
+                await InitializeIfNeeded().ConfigureAwait(false);
+                return await GetMoviesResults("top_rated", page, region, language, sortBy).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -138,7 +141,8 @@ namespace CEI.Services
         {
             try
             {
-                return await GetSimilarResults(page, movieId, language);
+                await InitializeIfNeeded().ConfigureAwait(false);
+                return await GetSimilarResults(page, movieId, language).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -151,7 +155,8 @@ namespace CEI.Services
         {
             try
             {
-                return await GetVideoResults(movieId, language);
+                await InitializeIfNeeded().ConfigureAwait(false);
+                return await GetVideoResults(movieId, language).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -166,7 +171,7 @@ namespace CEI.Services
             request.ContentType = "application/json";
             request.Method = "GET";
 
-            return await CompleteRequest(request);
+            return await CompleteRequest(request).ConfigureAwait(false);
         }
 
         private async Task<string> Post(string path, string jsonData)
@@ -178,21 +183,28 @@ namespace CEI.Services
             var requestStream = await request.GetRequestStreamAsync();
             using (StreamWriter sw = new StreamWriter(requestStream))
             {
-                await sw.WriteAsync(jsonData);
-                await sw.FlushAsync();
+                await sw.WriteAsync(jsonData).ConfigureAwait(false);
+                await sw.FlushAsync().ConfigureAwait(false);
             }
 
-            return await CompleteRequest(request);
+            return await CompleteRequest(request).ConfigureAwait(false);
 
         }
 
         private async Task<string> CompleteRequest(HttpWebRequest request)
         {
-            var response = await request.GetResponseAsync();
+            var response = request.GetResponseAsync().Result;
             using (StreamReader sr = new StreamReader(response.GetResponseStream()))
             {
-                return await sr.ReadToEndAsync();
+                return await sr.ReadToEndAsync().ConfigureAwait(false);
             }
+        }
+
+        private async Task<bool> InitializeIfNeeded()
+        {
+            if (!initialized)
+                await Initilaize().ConfigureAwait(false);
+            return initialized;
         }
 
         public async Task<bool> Initilaize(string key = "ab41356b33d100ec61e6c098ecc92140", string apiUrl = "http://api.themoviedb.org/3/")
@@ -202,8 +214,9 @@ namespace CEI.Services
             try
             {
                 var url = string.Format("{0}configuration?api_key={1}", baseUrl, key);
-                var json = await Get(url);
+                var json = await Get(url).ConfigureAwait(false);
                 Config = JsonConvert.DeserializeObject<Configuration>(json);
+                initialized = true;
                 return true;
             }
             catch (Exception ex)
@@ -213,7 +226,13 @@ namespace CEI.Services
             return false;
         }
 
-
+        public async Task<string> GetImageUrl(string imageName)
+        {
+            await InitializeIfNeeded().ConfigureAwait(false);
+            if (!initialized) return null;
+            string size = Config.Images.Has_w92_Option() ? ImageConfiguration.W92 : ImageConfiguration.Original;
+            return string.Format("{0}{1}/{2}", Config.Images.Base_url, size, imageName);
+        }
     }
 
 }

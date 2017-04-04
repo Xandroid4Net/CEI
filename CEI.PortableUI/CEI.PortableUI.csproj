@@ -40,6 +40,10 @@
       <Project>{8ec3e3dd-81a3-4458-8d74-c2de6f74c6d1}</Project>
       <Name>CEI.IOC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CEI.Services\CEI.Services.csproj">
+      <Project>{4921CEBC-9CF4-44DD-A532-FCB63A36C092}</Project>
+      <Name>CEI.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CEI.ViewModels\CEI.ViewModels.csproj">
       <Project>{cd2f2d55-dc06-45b8-955a-37a0158cbb48}</Project>
       <Name>CEI.ViewModels</Name>
