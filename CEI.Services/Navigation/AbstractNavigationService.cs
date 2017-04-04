@@ -58,7 +58,7 @@ namespace CEI.Services.Navigation
             PageType type;
             if (NavigationStack.Count == 0)
             {
-                type = PageType.Main;
+                type = PageType.Browse;
             }
             else
             {

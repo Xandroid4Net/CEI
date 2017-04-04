@@ -1,4 +1,5 @@
 ﻿using CEI.IOC;
+using CEI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace CEI.PortableUI
     {
         public UIApplication()
         {
+            Locator.Register<BrowseViewModel>(false);
         }
 
         public void Initialize(Action createDependentServices)

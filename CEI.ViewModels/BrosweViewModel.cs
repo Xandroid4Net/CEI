@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace CEI.ViewModels
 {
-    public interface IMainViewModel
-    { }
-    public class MainViewModel
+    public class BrowseViewModel
     {
     }
 }

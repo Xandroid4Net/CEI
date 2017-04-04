@@ -8,7 +8,7 @@ namespace CEI.Services.Navigation
 {
     public enum PageType
     {
-        Main = 0, Detail = 1
+        Browse = 0, Detail = 1
     }
     public interface IPage
     {

@@ -952,32 +952,32 @@ namespace CEI.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0b0047
-			public const int abc_background_cache_hint_selector_material_dark = 2131427399;
-			
 			// aapt resource value: 0x7f0b0048
-			public const int abc_background_cache_hint_selector_material_light = 2131427400;
+			public const int abc_background_cache_hint_selector_material_dark = 2131427400;
 			
 			// aapt resource value: 0x7f0b0049
-			public const int abc_color_highlight_material = 2131427401;
+			public const int abc_background_cache_hint_selector_material_light = 2131427401;
+			
+			// aapt resource value: 0x7f0b004a
+			public const int abc_color_highlight_material = 2131427402;
 			
 			// aapt resource value: 0x7f0b0000
 			public const int abc_input_method_navigation_guard = 2131427328;
 			
-			// aapt resource value: 0x7f0b004a
-			public const int abc_primary_text_disable_only_material_dark = 2131427402;
-			
 			// aapt resource value: 0x7f0b004b
-			public const int abc_primary_text_disable_only_material_light = 2131427403;
+			public const int abc_primary_text_disable_only_material_dark = 2131427403;
 			
 			// aapt resource value: 0x7f0b004c
-			public const int abc_primary_text_material_dark = 2131427404;
+			public const int abc_primary_text_disable_only_material_light = 2131427404;
 			
 			// aapt resource value: 0x7f0b004d
-			public const int abc_primary_text_material_light = 2131427405;
+			public const int abc_primary_text_material_dark = 2131427405;
 			
 			// aapt resource value: 0x7f0b004e
-			public const int abc_search_url_text = 2131427406;
+			public const int abc_primary_text_material_light = 2131427406;
+			
+			// aapt resource value: 0x7f0b004f
+			public const int abc_search_url_text = 2131427407;
 			
 			// aapt resource value: 0x7f0b0001
 			public const int abc_search_url_text_normal = 2131427329;
@@ -988,11 +988,11 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f0b0003
 			public const int abc_search_url_text_selected = 2131427331;
 			
-			// aapt resource value: 0x7f0b004f
-			public const int abc_secondary_text_material_dark = 2131427407;
-			
 			// aapt resource value: 0x7f0b0050
-			public const int abc_secondary_text_material_light = 2131427408;
+			public const int abc_secondary_text_material_dark = 2131427408;
+			
+			// aapt resource value: 0x7f0b0051
+			public const int abc_secondary_text_material_light = 2131427409;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int accent_material_dark = 2131427332;
@@ -1186,17 +1186,20 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f0b0037
 			public const int switch_thumb_disabled_material_light = 2131427383;
 			
-			// aapt resource value: 0x7f0b0051
-			public const int switch_thumb_material_dark = 2131427409;
-			
 			// aapt resource value: 0x7f0b0052
-			public const int switch_thumb_material_light = 2131427410;
+			public const int switch_thumb_material_dark = 2131427410;
+			
+			// aapt resource value: 0x7f0b0053
+			public const int switch_thumb_material_light = 2131427411;
 			
 			// aapt resource value: 0x7f0b0038
 			public const int switch_thumb_normal_material_dark = 2131427384;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int switch_thumb_normal_material_light = 2131427385;
+			
+			// aapt resource value: 0x7f0b0047
+			public const int toolbarText = 2131427399;
 			
 			// aapt resource value: 0x7f0b0043
 			public const int white = 2131427395;
@@ -1768,13 +1771,19 @@ namespace CEI.Droid
 			public const int design_snackbar_background = 2130837574;
 			
 			// aapt resource value: 0x7f020047
-			public const int ic_search_white_24dp = 2130837575;
+			public const int i = 2130837575;
 			
 			// aapt resource value: 0x7f020048
-			public const int Icon = 2130837576;
+			public const int ic_search_white_24dp = 2130837576;
 			
 			// aapt resource value: 0x7f020049
-			public const int notification_template_icon_bg = 2130837577;
+			public const int Icon = 2130837577;
+			
+			// aapt resource value: 0x7f02004b
+			public const int notification_template_icon_bg = 2130837579;
+			
+			// aapt resource value: 0x7f02004a
+			public const int whiteBorder = 2130837578;
 			
 			static Drawable()
 			{
@@ -1789,8 +1798,8 @@ namespace CEI.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060071
-			public const int action0 = 2131099761;
+			// aapt resource value: 0x7f060072
+			public const int action0 = 2131099762;
 			
 			// aapt resource value: 0x7f06005a
 			public const int action_bar = 2131099738;
@@ -1816,8 +1825,8 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f06005b
 			public const int action_context_bar = 2131099739;
 			
-			// aapt resource value: 0x7f060075
-			public const int action_divider = 2131099765;
+			// aapt resource value: 0x7f060076
+			public const int action_divider = 2131099766;
 			
 			// aapt resource value: 0x7f060003
 			public const int action_menu_divider = 2131099651;
@@ -1852,8 +1861,8 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060044
 			public const int buttonPanel = 2131099716;
 			
-			// aapt resource value: 0x7f060072
-			public const int cancel_action = 2131099762;
+			// aapt resource value: 0x7f060073
+			public const int cancel_action = 2131099763;
 			
 			// aapt resource value: 0x7f06002b
 			public const int center = 2131099691;
@@ -1867,8 +1876,8 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060052
 			public const int checkbox = 2131099730;
 			
-			// aapt resource value: 0x7f060078
-			public const int chronometer = 2131099768;
+			// aapt resource value: 0x7f060079
+			public const int chronometer = 2131099769;
 			
 			// aapt resource value: 0x7f060033
 			public const int clip_horizontal = 2131099699;
@@ -1915,8 +1924,8 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f06001b
 			public const int end = 2131099675;
 			
-			// aapt resource value: 0x7f06007d
-			public const int end_padder = 2131099773;
+			// aapt resource value: 0x7f06007e
+			public const int end_padder = 2131099774;
 			
 			// aapt resource value: 0x7f060023
 			public const int enterAlways = 2131099683;
@@ -1960,8 +1969,8 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f06003f
 			public const int image = 2131099711;
 			
-			// aapt resource value: 0x7f06007c
-			public const int info = 2131099772;
+			// aapt resource value: 0x7f06007d
+			public const int info = 2131099773;
 			
 			// aapt resource value: 0x7f060000
 			public const int item_touch_helper_previous_elevation = 2131099648;
@@ -1969,11 +1978,11 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f06002f
 			public const int left = 2131099695;
 			
-			// aapt resource value: 0x7f060076
-			public const int line1 = 2131099766;
+			// aapt resource value: 0x7f060077
+			public const int line1 = 2131099767;
 			
-			// aapt resource value: 0x7f06007a
-			public const int line3 = 2131099770;
+			// aapt resource value: 0x7f06007b
+			public const int line3 = 2131099771;
 			
 			// aapt resource value: 0x7f06000b
 			public const int listMode = 2131099659;
@@ -1981,11 +1990,11 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060041
 			public const int list_item = 2131099713;
 			
-			// aapt resource value: 0x7f060074
-			public const int media_actions = 2131099764;
+			// aapt resource value: 0x7f060075
+			public const int media_actions = 2131099765;
 			
-			// aapt resource value: 0x7f06007e
-			public const int miCompose = 2131099774;
+			// aapt resource value: 0x7f060080
+			public const int miCompose = 2131099776;
 			
 			// aapt resource value: 0x7f06001c
 			public const int middle = 2131099676;
@@ -1998,6 +2007,9 @@ namespace CEI.Droid
 			
 			// aapt resource value: 0x7f06006b
 			public const int navigation_header_container = 2131099755;
+			
+			// aapt resource value: 0x7f060071
+			public const int navigator = 2131099761;
 			
 			// aapt resource value: 0x7f060020
 			public const int never = 2131099680;
@@ -2119,8 +2131,8 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060031
 			public const int start = 2131099697;
 			
-			// aapt resource value: 0x7f060073
-			public const int status_bar_latest_event_content = 2131099763;
+			// aapt resource value: 0x7f060074
+			public const int status_bar_latest_event_content = 2131099764;
 			
 			// aapt resource value: 0x7f060065
 			public const int submit_area = 2131099749;
@@ -2128,17 +2140,17 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f06000d
 			public const int tabMode = 2131099661;
 			
-			// aapt resource value: 0x7f06007b
-			public const int text = 2131099771;
+			// aapt resource value: 0x7f06007c
+			public const int text = 2131099772;
 			
-			// aapt resource value: 0x7f060079
-			public const int text2 = 2131099769;
+			// aapt resource value: 0x7f06007a
+			public const int text2 = 2131099770;
 			
 			// aapt resource value: 0x7f06004d
 			public const int textSpacerNoButtons = 2131099725;
 			
-			// aapt resource value: 0x7f060077
-			public const int time = 2131099767;
+			// aapt resource value: 0x7f060078
+			public const int time = 2131099768;
 			
 			// aapt resource value: 0x7f060043
 			public const int title = 2131099715;
@@ -2148,6 +2160,9 @@ namespace CEI.Droid
 			
 			// aapt resource value: 0x7f060070
 			public const int toolbar = 2131099760;
+			
+			// aapt resource value: 0x7f06007f
+			public const int toolbar_title = 2131099775;
 			
 			// aapt resource value: 0x7f060032
 			public const int top = 2131099698;
@@ -2290,79 +2305,82 @@ namespace CEI.Droid
 			public const int abc_select_dialog_material = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int design_layout_snackbar = 2130903065;
+			public const int browsePage = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int design_layout_snackbar_include = 2130903066;
+			public const int design_layout_snackbar = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int design_layout_tab_icon = 2130903067;
+			public const int design_layout_snackbar_include = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int design_layout_tab_text = 2130903068;
+			public const int design_layout_tab_icon = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int design_menu_item_action_area = 2130903069;
+			public const int design_layout_tab_text = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int design_navigation_item = 2130903070;
+			public const int design_menu_item_action_area = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int design_navigation_item_header = 2130903071;
+			public const int design_navigation_item = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int design_navigation_item_separator = 2130903072;
+			public const int design_navigation_item_header = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int design_navigation_item_subheader = 2130903073;
+			public const int design_navigation_item_separator = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int design_navigation_menu = 2130903074;
+			public const int design_navigation_item_subheader = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int design_navigation_menu_item = 2130903075;
+			public const int design_navigation_menu = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int Main = 2130903076;
+			public const int design_navigation_menu_item = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int notification_media_action = 2130903077;
+			public const int Main = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int notification_media_cancel_action = 2130903078;
+			public const int notification_media_action = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int notification_template_big_media = 2130903079;
+			public const int notification_media_cancel_action = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int notification_template_big_media_narrow = 2130903080;
+			public const int notification_template_big_media = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int notification_template_lines = 2130903081;
+			public const int notification_template_big_media_narrow = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int notification_template_media = 2130903082;
+			public const int notification_template_lines = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int notification_template_part_chronometer = 2130903083;
+			public const int notification_template_media = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int notification_template_part_time = 2130903084;
+			public const int notification_template_part_chronometer = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int select_dialog_item_material = 2130903085;
+			public const int notification_template_part_time = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int select_dialog_multichoice_material = 2130903086;
+			public const int select_dialog_item_material = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int select_dialog_singlechoice_material = 2130903087;
+			public const int select_dialog_multichoice_material = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int support_simple_spinner_dropdown_item = 2130903088;
+			public const int select_dialog_singlechoice_material = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int toolbar = 2130903089;
+			public const int support_simple_spinner_dropdown_item = 2130903089;
+			
+			// aapt resource value: 0x7f030032
+			public const int toolbar = 2130903090;
 			
 			static Layout()
 			{
@@ -2456,11 +2474,20 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f070015
 			public const int character_counter_pattern = 2131165205;
 			
-			// aapt resource value: 0x7f070016
-			public const int hello = 2131165206;
+			// aapt resource value: 0x7f070019
+			public const int nowPlaying = 2131165209;
+			
+			// aapt resource value: 0x7f070018
+			public const int popular = 2131165208;
 			
 			// aapt resource value: 0x7f070013
 			public const int status_bar_notification_info_overflow = 2131165203;
+			
+			// aapt resource value: 0x7f070016
+			public const int toolbarTitle = 2131165206;
+			
+			// aapt resource value: 0x7f070017
+			public const int topRated = 2131165207;
 			
 			static String()
 			{
@@ -2909,9 +2936,6 @@ namespace CEI.Droid
 			
 			// aapt resource value: 0x7f090134
 			public const int Base_Widget_Design_TabLayout = 2131296564;
-			
-			// aapt resource value: 0x7f090145
-			public const int DrawerArrowStyle = 2131296581;
 			
 			// aapt resource value: 0x7f090144
 			public const int MyTheme = 2131296580;
@@ -3452,6 +3476,9 @@ namespace CEI.Droid
 			
 			// aapt resource value: 0x7f090143
 			public const int Widget_Design_TextInputLayout = 2131296579;
+			
+			// aapt resource value: 0x7f090145
+			public const int boderedImage = 2131296581;
 			
 			static Style()
 			{
