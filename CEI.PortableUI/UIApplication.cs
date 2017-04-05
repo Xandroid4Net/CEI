@@ -14,6 +14,7 @@ namespace CEI.PortableUI
         public UIApplication()
         {
             Locator.Register<BrowseViewModel>(false);
+            Locator.Register<DetailViewModel>(false);
         }
 
         public void Initialize(Action createDependentServices)

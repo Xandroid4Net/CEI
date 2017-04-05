@@ -9,33 +9,28 @@ namespace CEI.Droid.Services
 {
     public interface IImageService
     {
-        Task<bool> LoadImage(string url, ImageView iv);
+        Bitmap LoadImage(string url);
     }
     public class ImageService : IImageService
     {
-        //TODO: A simple optimization would be a local cache of the images so the app doesn't have to fetch them every time.
-        public async Task<bool> LoadImage(string url, ImageView iv)
+        //TODO: Add local cache of the images so the app doesn't have to fetch them every time.
+        public Bitmap LoadImage(string url)
         {
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = "GET";
-                var response = await request.GetResponseAsync();
+                var response = request.GetResponseAsync().Result;
                 using (var stream = response.GetResponseStream())
                 {
-                    using (Bitmap b = BitmapFactory.DecodeStream(stream))
-                    {
-                        iv.SetImageBitmap(b);
-                        b.Dispose();
-                    }
+                    return BitmapFactory.DecodeStream(stream);
                 }
-                return true;
             }
             catch (Exception ex)
             {
                 EventBus.PublishError(ex);
             }
-            return false;
+            return null;
         }
     }
 }

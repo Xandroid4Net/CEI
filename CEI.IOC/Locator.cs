@@ -67,6 +67,7 @@ namespace CEI.IOC
         {
             lock (_syncLock)
             {
+                if (_RegisteredTypeDictionary.ContainsKey(typeof(T))) return;
                 _RegisteredTypeDictionary.Add(typeof(T), null);
                 _RegisteredObjectDictionary.Add(typeof(T), createdInstance);
             }

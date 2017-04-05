@@ -24,7 +24,15 @@ namespace CEI.Droid.Pages
         private BrowseViewModel viewModel;
         private RecyclerView topRated;
         private ItemAdapter topRatedAdapter;
-        RecyclerView.LayoutManager topRatedManager;
+        private LinearLayoutManager topRatedManager;
+
+        private RecyclerView popular;
+        private ItemAdapter popularAdapter;
+        private LinearLayoutManager popularManager;
+
+        private RecyclerView nowPlaying;
+        private ItemAdapter nowPlayingAdapter;
+        private LinearLayoutManager nowPlayingManager;
 
         public override PageType GetPageType()
         {
@@ -34,19 +42,78 @@ namespace CEI.Droid.Pages
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.browsePage, container, false);
-            viewModel = Locator.GetNewInstance<BrowseViewModel>();
+            viewModel = Locator.Get<BrowseViewModel>();
+            if (viewModel == null)
+            {
+                viewModel = Locator.GetNewInstance<BrowseViewModel>();
+                viewModel.PropertyChanged += ViewModel_PropertyChanged;
+                Task.Run(async () =>
+                {
+                    await viewModel.GetTopRated().ConfigureAwait(false);
+                    await viewModel.GetPopular().ConfigureAwait(false);
+                    await viewModel.GetNowPlaying().ConfigureAwait(false);
+                });
+            }
+
 
             topRated = view.FindViewById<RecyclerView>(Resource.Id.topRated);
+            InitTopRatedRecyclerView();
+
+            popular = view.FindViewById<RecyclerView>(Resource.Id.popular);
+            InitPopularRecyclerView();
+
+
+            nowPlaying = view.FindViewById<RecyclerView>(Resource.Id.nowPlaying);
+            InitNowPlayingRecyclerView();
+
+
+
+            return view;
+        }
+
+        private void InitTopRatedRecyclerView()
+        {
             topRatedManager = new LinearLayoutManager(Activity, LinearLayoutManager.Horizontal, false);
             topRated.SetLayoutManager(topRatedManager);
-            topRatedAdapter = new ItemAdapter(new List<Item>());
+            topRatedAdapter = new ItemAdapter(viewModel.GetCachedTopRated());
             topRated.SetAdapter(topRatedAdapter);
-            viewModel.PropertyChanged += ViewModel_PropertyChanged;
-            Task.Run(async () =>
+            var topRatedScrollListener = new ItemAdapterScollListener(topRatedManager);
+            topRatedScrollListener.LoadMore += async delegate ()
             {
+                if (!viewModel.CanLoadMoreTopRated()) return;
                 await viewModel.GetTopRated().ConfigureAwait(false);
-            });
-            return view;
+            };
+            topRated.AddOnScrollListener(topRatedScrollListener);
+        }
+
+        private void InitPopularRecyclerView()
+        {
+            popularManager = new LinearLayoutManager(Activity, LinearLayoutManager.Horizontal, false);
+            popular.SetLayoutManager(popularManager);
+            popularAdapter = new ItemAdapter(viewModel.GetCachedPopular());
+            popular.SetAdapter(popularAdapter);
+            var popularScrollListener = new ItemAdapterScollListener(popularManager);
+            popularScrollListener.LoadMore += async delegate ()
+            {
+                if (!viewModel.CanLoadMorePopular()) return;
+                await viewModel.GetPopular().ConfigureAwait(false);
+            };
+            popular.AddOnScrollListener(popularScrollListener);
+        }
+
+        private void InitNowPlayingRecyclerView()
+        {
+            nowPlayingManager = new LinearLayoutManager(Activity, LinearLayoutManager.Horizontal, false);
+            nowPlaying.SetLayoutManager(nowPlayingManager);
+            nowPlayingAdapter = new ItemAdapter(viewModel.GetCachedNowPlaying());
+            nowPlaying.SetAdapter(nowPlayingAdapter);
+            var nowPlayingScrollListener = new ItemAdapterScollListener(nowPlayingManager);
+            nowPlayingScrollListener.LoadMore += async delegate ()
+            {
+                if (!viewModel.CanLoadMoreNowPlaying()) return;
+                await viewModel.GetNowPlaying().ConfigureAwait(false);
+            };
+            nowPlaying.AddOnScrollListener(nowPlayingScrollListener);
         }
 
         private void ViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -57,10 +124,12 @@ namespace CEI.Droid.Pages
             {
                 case "TopRatedMovies":
                     topRatedAdapter.AddItems(viewModel.TopRatedMovies[viewModel.TopRatedPage]);
-                    Activity.RunOnUiThread(() =>
-                    {
-                        topRatedAdapter.NotifyDataSetChanged();
-                    });
+                    break;
+                case "PopularMovies":
+                    popularAdapter.AddItems(viewModel.PopularMovies[viewModel.PopularPage]);
+                    break;
+                case "NowPlayingMovies":
+                    nowPlayingAdapter.AddItems(viewModel.NowPlayingMovies[viewModel.NowPlayingPage]);
                     break;
             }
         }

@@ -23,6 +23,7 @@ namespace CEI.Droid
         public bool isPaused = false;
         private Toolbar toolbar;
         private FrameLayout navigationFrame;
+        private INavigationService navigationService;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -35,9 +36,20 @@ namespace CEI.Droid
 
             navigationFrame = FindViewById<FrameLayout>(Resource.Id.navigator);
 
-            var navigationService = Locator.Get<INavigationService>(false) as NavigationService;
-            navigationService.GotoPage += GoToPage;
-            Locator.Get<INavigationService>(false).Navigate(PageType.Browse, true);
+            var service = Locator.Get<INavigationService>(false) as NavigationService;
+            service.GotoPage += GoToPage;
+            navigationService = service;
+            navigationService.Navigate(PageType.Browse, true);
+        }
+
+        public override void OnBackPressed()
+        {
+            if (navigationService.GetCurrentPage() == PageType.Browse)
+            {
+                base.OnBackPressed();
+                return;
+            }
+            navigationService.NavigateBack();
         }
 
         protected override void OnPause()
@@ -62,7 +74,7 @@ namespace CEI.Droid
                     FragmentManager.BeginTransaction().Replace(Resource.Id.navigator, page.As<BrowsePage>()).Commit();
                     break;
                 case PageType.Detail:
-                    //FragmentManager.BeginTransaction().Replace(Resource.Id.navigator, page.As<ChooseTransactionPage>()).Commit();
+                    FragmentManager.BeginTransaction().Replace(Resource.Id.navigator, page.As<DetailPage>()).Commit();
                     break;
                 default:
                     break;

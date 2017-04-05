@@ -28,6 +28,8 @@ namespace CEI.Droid.Services
                 default:
                 case PageType.Browse:
                     return new BrowsePage();
+                case PageType.Detail:
+                    return new DetailPage();
             }
         }
     }
