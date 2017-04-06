@@ -36,11 +36,11 @@ namespace CEI.Droid.Adapter
 
             var vh = holder as ItemViewHolder;
             vh.Root.SetOnClickListener(null);
-            vh.Root.SetOnClickListener(new ItemOnClick(async () =>
+            vh.Root.SetOnClickListener(new ItemOnClick(() =>
             {
                 var detailVM = Locator.GetNewInstance<DetailViewModel>();
-                await detailVM.Initialize(items[position]);
-                navigator.Navigate(PageType.Detail, false);
+                detailVM.Initialize(items[position]);
+                navigator.Navigate(PageType.Detail, false, items[position]);
             }));
             Task.Run(async () =>
             {

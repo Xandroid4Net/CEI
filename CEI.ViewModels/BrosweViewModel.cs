@@ -25,17 +25,17 @@ namespace CEI.ViewModels
 
         public bool CanLoadMoreTopRated()
         {
-            return TopRatedPage <= totalTopRatedPages;
+            return TopRatedPage < totalTopRatedPages;
         }
 
         public bool CanLoadMorePopular()
         {
-            return PopularPage <= totalPopularPages;
+            return PopularPage < totalPopularPages;
         }
 
         public bool CanLoadMoreNowPlaying()
         {
-            return NowPlayingPage <= totalNowPlayingPages;
+            return NowPlayingPage < totalNowPlayingPages;
         }
 
         public List<Item> GetCachedTopRated()
@@ -61,6 +61,20 @@ namespace CEI.ViewModels
                 ret.AddRange(kvp.Value);
             }
             return ret;
+        }
+
+        public async Task<bool> Refresh(Action completeCallback)
+        {
+            TopRatedPage = NowPlayingPage = PopularPage = 0;
+            TopRatedMovies = new Dictionary<int, List<Item>>();
+            PopularMovies = new Dictionary<int, List<Item>>();
+            NowPlayingMovies = new Dictionary<int, List<Item>>();
+            totalTopRatedPages = totalPopularPages = totalNowPlayingPages = -1;
+            await GetTopRated();
+            await GetPopular();
+            await GetNowPlaying();
+            completeCallback.Invoke();
+            return true;
         }
 
         public async Task<bool> GetTopRated()

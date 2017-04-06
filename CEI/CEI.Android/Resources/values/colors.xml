@@ -5,4 +5,7 @@
   <color name="colorPrimaryDark">#323232</color>
   <color name="colorAccent">#607D8B</color>
   <color name="toolbarText">#DC952B</color>
+  <color name="starsColor">#DD5035</color>
+  <color name="playColor">#A0CB19</color>
+  <color name="favColor">#DAB101</color>
 </resources>

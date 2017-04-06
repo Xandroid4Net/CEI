@@ -22,8 +22,12 @@
     <item name="android:paddingLeft">5dp</item>
     <item name="android:paddingTop">2dp</item>
     <item name="android:paddingBottom">2dp</item>
-    <item name="android:background">@drawable/whiteBorder</item>
     <item name="android:scaleType">centerCrop</item>
+  </style>
+
+  <style name="RatingBar" parent="Theme.AppCompat">
+    <item name="colorControlNormal">@color/starsColor</item>
+    <item name="colorControlActivated">@color/starsColor</item>
   </style>
   
 </resources>

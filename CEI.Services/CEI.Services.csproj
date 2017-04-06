@@ -46,6 +46,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractFavoriteService.cs" />
     <Compile Include="IUIDispatcher.cs" />
     <Compile Include="Navigation\AbstractNavigationService.cs" />
     <Compile Include="ApiService.cs" />

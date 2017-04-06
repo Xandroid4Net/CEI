@@ -14,6 +14,8 @@ using CEI.Services.Navigation;
 using CEI.Droid.Services;
 using CEI.Droid.Pages;
 using CEI.Services;
+using JavaObject = Java.Lang.Object;
+using CEI.IOC.Bus;
 
 namespace CEI.Droid
 {
@@ -40,6 +42,40 @@ namespace CEI.Droid
             service.GotoPage += GoToPage;
             navigationService = service;
             navigationService.Navigate(PageType.Browse, true);
+
+            EventBus.Subscribe(this.GetType(), (obj) =>
+            {
+                if (isPaused) return;
+                if (obj is PlayVideoEvent)
+                {
+                    PlayVideo(obj as PlayVideoEvent);
+                    return;
+                }
+
+                if (obj is Exception)
+                {
+                    Locator.Get<IUIDispatcher>().RunOnUiThread(() =>
+                    {
+                        Toast.MakeText(this, (obj as Exception).Message, ToastLength.Short).Show();
+                    });
+                    return;
+                }
+            });
+        }
+
+        private void PlayVideo(PlayVideoEvent ev)
+        {
+            Intent appIntent = new Intent(Intent.ActionView, Android.Net.Uri.Parse("vnd.youtube:" + ev.Key));
+            Intent webIntent = new Intent(Intent.ActionView,
+                        Android.Net.Uri.Parse("http://www.youtube.com/watch?v=" + ev.Key));
+            try
+            {
+                StartActivity(appIntent);
+            }
+            catch (ActivityNotFoundException ex)
+            {
+                StartActivity(webIntent);
+            }
         }
 
         public override void OnBackPressed()
@@ -83,10 +119,38 @@ namespace CEI.Droid
 
         }
 
-        public override bool OnCreateOptionsMenu(IMenu menu)
+        //public override bool OnCreateOptionsMenu(IMenu menu)
+        //{
+        //    MenuInflater.Inflate(Resource.Menu.menu_main, menu);
+        //    return true;
+        //}
+
+        public override bool OnPrepareOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
+            if (navigationService.GetCurrentPage() == PageType.Browse)
+            {
+                MenuInflater.Inflate(Resource.Menu.menu_main, menu);
+            }
+            else
+            {
+                MenuInflater.Inflate(Resource.Menu.menu_detail, menu);
+            }
             return true;
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.close:
+                    OnBackPressed();
+                    return true;
+                case Resource.Id.search:
+                    Toast.MakeText(this, "Search not implemented", ToastLength.Short).Show();
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
         }
     }
 }

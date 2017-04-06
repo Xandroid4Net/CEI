@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bus\EventBus.cs" />
+    <Compile Include="Bus\PlayVideoEvent.cs" />
     <Compile Include="Locator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -13,6 +13,7 @@ using CEI.PortableUI;
 using CEI.Services.Navigation;
 using CEI.Droid.Services;
 using CEI.IOC;
+using CEI.Services;
 
 namespace CEI.Droid
 {
@@ -31,6 +32,7 @@ namespace CEI.Droid
             {
                 Locator.Register<INavigationService>(new NavigationService());
                 Locator.Register<IImageService>(new ImageService());
+                Locator.Register<IFavoriteService>(new FavoriteService(this));
                 //Locator.Register<IUIDispatcher>(new UIDispatcher());
             });
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CEI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,11 @@ namespace CEI.Services.Navigation
 
     public interface INavigationService
     {
-        void Navigate(PageType page, bool clearpageStack);
+        void Navigate(PageType page, bool clearpageStack, Item item = null);
 
         void NavigateBack();
+
+        Item GetCurrentItem();
 
         PageType GetCurrentPage();
 
@@ -29,15 +32,20 @@ namespace CEI.Services.Navigation
         public event NavigateEventHandler GotoPage;
 
         private Stack<PageType> NavigationStack = new Stack<PageType>();
+        private Stack<Item> ItemStack = new Stack<Item>();
 
         public abstract IPage GetPage(PageType type);
         public abstract void Exit();
 
-        public virtual void Navigate(PageType page, bool clearpageStack)
+        public virtual void Navigate(PageType page, bool clearpageStack, Item item = null)
         {
             if (clearpageStack)
                 NavigationStack.Clear();
             NavigationStack.Push(page);
+            if (page == PageType.Detail)
+            {
+                ItemStack.Push(item);
+            }
             if (GotoPage != null)
             {
                 GotoPage(GetPage(page), clearpageStack);
@@ -47,6 +55,11 @@ namespace CEI.Services.Navigation
         public virtual void NavigateBack()
         {
             PageType currentPage = NavigationStack.Pop();
+
+            if (currentPage == PageType.Detail && ItemStack.Count > 0)
+            {
+                ItemStack.Pop();
+            }
             if (GotoPage != null)
             {
                 GotoPage(GetPage(NavigationStack.Peek()), false);
@@ -75,6 +88,11 @@ namespace CEI.Services.Navigation
         public int GetPageStackCount()
         {
             return NavigationStack.Count;
+        }
+
+        public Item GetCurrentItem()
+        {
+            return ItemStack.Peek();
         }
     }
 }

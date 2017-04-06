@@ -20,7 +20,7 @@ namespace CEI.Services
         Task<MovieResponse> GetTopRated(int page, string region = "US", string language = "en-US", string sortBy = "popularity.des");
         Task<MovieResponse> GetSimilar(int page, int movieId, string language = "en-US");
         Task<VideoResponse> GetVideos(int movieId, string language = "en-US");
-        Task<string> GetImageUrl(string imageName);
+        Task<string> GetImageUrl(string imageName, bool large = false);
     }
     public class ApiService : IApiService
     {
@@ -226,11 +226,20 @@ namespace CEI.Services
             return false;
         }
 
-        public async Task<string> GetImageUrl(string imageName)
+        public async Task<string> GetImageUrl(string imageName, bool large = false)
         {
             await InitializeIfNeeded().ConfigureAwait(false);
             if (!initialized) return null;
-            string size = Config.Images.Has_w92_Option() ? ImageConfiguration.W92 : ImageConfiguration.Original;
+            string size = ImageConfiguration.Original;
+            if (large && Config.Images.Has_w154_Option())
+            {
+                size = ImageConfiguration.W154;
+            }
+
+            if (!large && Config.Images.Has_w92_Option())
+            {
+                size = ImageConfiguration.W92;
+            }
             return string.Format("{0}{1}/{2}", Config.Images.Base_url, size, imageName);
         }
     }

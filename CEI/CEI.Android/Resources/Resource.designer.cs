@@ -952,32 +952,32 @@ namespace CEI.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0b0048
-			public const int abc_background_cache_hint_selector_material_dark = 2131427400;
+			// aapt resource value: 0x7f0b004b
+			public const int abc_background_cache_hint_selector_material_dark = 2131427403;
 			
-			// aapt resource value: 0x7f0b0049
-			public const int abc_background_cache_hint_selector_material_light = 2131427401;
+			// aapt resource value: 0x7f0b004c
+			public const int abc_background_cache_hint_selector_material_light = 2131427404;
 			
-			// aapt resource value: 0x7f0b004a
-			public const int abc_color_highlight_material = 2131427402;
+			// aapt resource value: 0x7f0b004d
+			public const int abc_color_highlight_material = 2131427405;
 			
 			// aapt resource value: 0x7f0b0000
 			public const int abc_input_method_navigation_guard = 2131427328;
 			
-			// aapt resource value: 0x7f0b004b
-			public const int abc_primary_text_disable_only_material_dark = 2131427403;
-			
-			// aapt resource value: 0x7f0b004c
-			public const int abc_primary_text_disable_only_material_light = 2131427404;
-			
-			// aapt resource value: 0x7f0b004d
-			public const int abc_primary_text_material_dark = 2131427405;
-			
 			// aapt resource value: 0x7f0b004e
-			public const int abc_primary_text_material_light = 2131427406;
+			public const int abc_primary_text_disable_only_material_dark = 2131427406;
 			
 			// aapt resource value: 0x7f0b004f
-			public const int abc_search_url_text = 2131427407;
+			public const int abc_primary_text_disable_only_material_light = 2131427407;
+			
+			// aapt resource value: 0x7f0b0050
+			public const int abc_primary_text_material_dark = 2131427408;
+			
+			// aapt resource value: 0x7f0b0051
+			public const int abc_primary_text_material_light = 2131427409;
+			
+			// aapt resource value: 0x7f0b0052
+			public const int abc_search_url_text = 2131427410;
 			
 			// aapt resource value: 0x7f0b0001
 			public const int abc_search_url_text_normal = 2131427329;
@@ -988,11 +988,11 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f0b0003
 			public const int abc_search_url_text_selected = 2131427331;
 			
-			// aapt resource value: 0x7f0b0050
-			public const int abc_secondary_text_material_dark = 2131427408;
+			// aapt resource value: 0x7f0b0053
+			public const int abc_secondary_text_material_dark = 2131427411;
 			
-			// aapt resource value: 0x7f0b0051
-			public const int abc_secondary_text_material_light = 2131427409;
+			// aapt resource value: 0x7f0b0054
+			public const int abc_secondary_text_material_light = 2131427412;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int accent_material_dark = 2131427332;
@@ -1084,6 +1084,9 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f0b0015
 			public const int dim_foreground_material_light = 2131427349;
 			
+			// aapt resource value: 0x7f0b004a
+			public const int favColor = 2131427402;
+			
 			// aapt resource value: 0x7f0b0016
 			public const int foreground_material_dark = 2131427350;
 			
@@ -1138,6 +1141,9 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f0b0027
 			public const int material_grey_900 = 2131427367;
 			
+			// aapt resource value: 0x7f0b0049
+			public const int playColor = 2131427401;
+			
 			// aapt resource value: 0x7f0b0028
 			public const int primary_dark_material_dark = 2131427368;
 			
@@ -1180,17 +1186,20 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f0b0035
 			public const int secondary_text_disabled_material_light = 2131427381;
 			
+			// aapt resource value: 0x7f0b0048
+			public const int starsColor = 2131427400;
+			
 			// aapt resource value: 0x7f0b0036
 			public const int switch_thumb_disabled_material_dark = 2131427382;
 			
 			// aapt resource value: 0x7f0b0037
 			public const int switch_thumb_disabled_material_light = 2131427383;
 			
-			// aapt resource value: 0x7f0b0052
-			public const int switch_thumb_material_dark = 2131427410;
+			// aapt resource value: 0x7f0b0055
+			public const int switch_thumb_material_dark = 2131427413;
 			
-			// aapt resource value: 0x7f0b0053
-			public const int switch_thumb_material_light = 2131427411;
+			// aapt resource value: 0x7f0b0056
+			public const int switch_thumb_material_light = 2131427414;
 			
 			// aapt resource value: 0x7f0b0038
 			public const int switch_thumb_normal_material_dark = 2131427384;
@@ -1774,19 +1783,31 @@ namespace CEI.Droid
 			public const int i = 2130837575;
 			
 			// aapt resource value: 0x7f020048
-			public const int ic_local_movies_white_24dp = 2130837576;
+			public const int ic_close_white_24dp = 2130837576;
 			
 			// aapt resource value: 0x7f020049
-			public const int ic_search_white_24dp = 2130837577;
+			public const int ic_local_movies_white_24dp = 2130837577;
 			
 			// aapt resource value: 0x7f02004a
-			public const int Icon = 2130837578;
-			
-			// aapt resource value: 0x7f02004c
-			public const int notification_template_icon_bg = 2130837580;
+			public const int ic_search_white_24dp = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int whiteBorder = 2130837579;
+			public const int Icon = 2130837579;
+			
+			// aapt resource value: 0x7f02004c
+			public const int il = 2130837580;
+			
+			// aapt resource value: 0x7f020050
+			public const int notification_template_icon_bg = 2130837584;
+			
+			// aapt resource value: 0x7f02004d
+			public const int ratingselector = 2130837581;
+			
+			// aapt resource value: 0x7f02004e
+			public const int starempty = 2130837582;
+			
+			// aapt resource value: 0x7f02004f
+			public const int starfull = 2130837583;
 			
 			static Drawable()
 			{
@@ -1801,8 +1822,8 @@ namespace CEI.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060078
-			public const int action0 = 2131099768;
+			// aapt resource value: 0x7f060080
+			public const int action0 = 2131099776;
 			
 			// aapt resource value: 0x7f06005a
 			public const int action_bar = 2131099738;
@@ -1828,8 +1849,8 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f06005b
 			public const int action_context_bar = 2131099739;
 			
-			// aapt resource value: 0x7f06007c
-			public const int action_divider = 2131099772;
+			// aapt resource value: 0x7f060084
+			public const int action_divider = 2131099780;
 			
 			// aapt resource value: 0x7f060003
 			public const int action_menu_divider = 2131099651;
@@ -1864,8 +1885,8 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060044
 			public const int buttonPanel = 2131099716;
 			
-			// aapt resource value: 0x7f060079
-			public const int cancel_action = 2131099769;
+			// aapt resource value: 0x7f060081
+			public const int cancel_action = 2131099777;
 			
 			// aapt resource value: 0x7f06002b
 			public const int center = 2131099691;
@@ -1879,14 +1900,17 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060052
 			public const int checkbox = 2131099730;
 			
-			// aapt resource value: 0x7f06007f
-			public const int chronometer = 2131099775;
+			// aapt resource value: 0x7f060087
+			public const int chronometer = 2131099783;
 			
 			// aapt resource value: 0x7f060033
 			public const int clip_horizontal = 2131099699;
 			
 			// aapt resource value: 0x7f060034
 			public const int clip_vertical = 2131099700;
+			
+			// aapt resource value: 0x7f06008e
+			public const int close = 2131099790;
 			
 			// aapt resource value: 0x7f06001e
 			public const int collapseActionView = 2131099678;
@@ -1906,17 +1930,17 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060040
 			public const int default_activity_button = 2131099712;
 			
+			// aapt resource value: 0x7f060073
+			public const int design_menu_item_action_area = 2131099763;
+			
 			// aapt resource value: 0x7f060072
-			public const int design_menu_item_action_area = 2131099762;
+			public const int design_menu_item_action_area_stub = 2131099762;
 			
 			// aapt resource value: 0x7f060071
-			public const int design_menu_item_action_area_stub = 2131099761;
+			public const int design_menu_item_text = 2131099761;
 			
 			// aapt resource value: 0x7f060070
-			public const int design_menu_item_text = 2131099760;
-			
-			// aapt resource value: 0x7f06006f
-			public const int design_navigation_view = 2131099759;
+			public const int design_navigation_view = 2131099760;
 			
 			// aapt resource value: 0x7f06000e
 			public const int disableHome = 2131099662;
@@ -1927,8 +1951,8 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f06001b
 			public const int end = 2131099675;
 			
-			// aapt resource value: 0x7f060084
-			public const int end_padder = 2131099780;
+			// aapt resource value: 0x7f06008c
+			public const int end_padder = 2131099788;
 			
 			// aapt resource value: 0x7f060023
 			public const int enterAlways = 2131099683;
@@ -1944,6 +1968,9 @@ namespace CEI.Droid
 			
 			// aapt resource value: 0x7f060051
 			public const int expanded_menu = 2131099729;
+			
+			// aapt resource value: 0x7f06007a
+			public const int favorite = 2131099770;
 			
 			// aapt resource value: 0x7f060035
 			public const int fill = 2131099701;
@@ -1972,8 +1999,8 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f06003f
 			public const int image = 2131099711;
 			
-			// aapt resource value: 0x7f060083
-			public const int info = 2131099779;
+			// aapt resource value: 0x7f06008b
+			public const int info = 2131099787;
 			
 			// aapt resource value: 0x7f060000
 			public const int item_touch_helper_previous_elevation = 2131099648;
@@ -1981,11 +2008,11 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f06002f
 			public const int left = 2131099695;
 			
-			// aapt resource value: 0x7f06007d
-			public const int line1 = 2131099773;
+			// aapt resource value: 0x7f060085
+			public const int line1 = 2131099781;
 			
-			// aapt resource value: 0x7f060081
-			public const int line3 = 2131099777;
+			// aapt resource value: 0x7f060089
+			public const int line3 = 2131099785;
 			
 			// aapt resource value: 0x7f06000b
 			public const int listMode = 2131099659;
@@ -1993,11 +2020,8 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060041
 			public const int list_item = 2131099713;
 			
-			// aapt resource value: 0x7f06007b
-			public const int media_actions = 2131099771;
-			
-			// aapt resource value: 0x7f060086
-			public const int miCompose = 2131099782;
+			// aapt resource value: 0x7f060083
+			public const int media_actions = 2131099779;
 			
 			// aapt resource value: 0x7f06001c
 			public const int middle = 2131099676;
@@ -2008,11 +2032,11 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060015
 			public const int multiply = 2131099669;
 			
-			// aapt resource value: 0x7f06006e
-			public const int navigation_header_container = 2131099758;
+			// aapt resource value: 0x7f06006f
+			public const int navigation_header_container = 2131099759;
 			
-			// aapt resource value: 0x7f060077
-			public const int navigator = 2131099767;
+			// aapt resource value: 0x7f06007f
+			public const int navigator = 2131099775;
 			
 			// aapt resource value: 0x7f060020
 			public const int never = 2131099680;
@@ -2023,11 +2047,14 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f06000c
 			public const int normal = 2131099660;
 			
-			// aapt resource value: 0x7f06006b
-			public const int nowPlaying = 2131099755;
+			// aapt resource value: 0x7f06006c
+			public const int nowPlaying = 2131099756;
 			
-			// aapt resource value: 0x7f060073
-			public const int overview = 2131099763;
+			// aapt resource value: 0x7f060075
+			public const int originalTitle = 2131099765;
+			
+			// aapt resource value: 0x7f06007b
+			public const int overview = 2131099771;
 			
 			// aapt resource value: 0x7f060028
 			public const int parallax = 2131099688;
@@ -2038,11 +2065,14 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060029
 			public const int pin = 2131099689;
 			
-			// aapt resource value: 0x7f06006a
-			public const int popular = 2131099754;
+			// aapt resource value: 0x7f060079
+			public const int play = 2131099769;
 			
-			// aapt resource value: 0x7f060075
-			public const int poster = 2131099765;
+			// aapt resource value: 0x7f06006b
+			public const int popular = 2131099755;
+			
+			// aapt resource value: 0x7f060074
+			public const int poster = 2131099764;
 			
 			// aapt resource value: 0x7f060006
 			public const int progress_circular = 2131099654;
@@ -2053,11 +2083,17 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060054
 			public const int radio = 2131099732;
 			
+			// aapt resource value: 0x7f060077
+			public const int ratingBar = 2131099767;
+			
+			// aapt resource value: 0x7f060076
+			public const int releaseDate = 2131099766;
+			
 			// aapt resource value: 0x7f060030
 			public const int right = 2131099696;
 			
-			// aapt resource value: 0x7f060074
-			public const int root = 2131099764;
+			// aapt resource value: 0x7f06007d
+			public const int root = 2131099773;
 			
 			// aapt resource value: 0x7f060016
 			public const int screen = 2131099670;
@@ -2076,6 +2112,9 @@ namespace CEI.Droid
 			
 			// aapt resource value: 0x7f060039
 			public const int scrollable = 2131099705;
+			
+			// aapt resource value: 0x7f06008f
+			public const int search = 2131099791;
 			
 			// aapt resource value: 0x7f06005e
 			public const int search_badge = 2131099742;
@@ -2122,11 +2161,14 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060013
 			public const int showTitle = 2131099667;
 			
-			// aapt resource value: 0x7f06006d
-			public const int snackbar_action = 2131099757;
+			// aapt resource value: 0x7f06007c
+			public const int similar = 2131099772;
 			
-			// aapt resource value: 0x7f06006c
-			public const int snackbar_text = 2131099756;
+			// aapt resource value: 0x7f06006e
+			public const int snackbar_action = 2131099758;
+			
+			// aapt resource value: 0x7f06006d
+			public const int snackbar_text = 2131099757;
 			
 			// aapt resource value: 0x7f060027
 			public const int snap = 2131099687;
@@ -2149,26 +2191,29 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060031
 			public const int start = 2131099697;
 			
-			// aapt resource value: 0x7f06007a
-			public const int status_bar_latest_event_content = 2131099770;
+			// aapt resource value: 0x7f060082
+			public const int status_bar_latest_event_content = 2131099778;
 			
 			// aapt resource value: 0x7f060065
 			public const int submit_area = 2131099749;
 			
+			// aapt resource value: 0x7f060069
+			public const int swipeRefresh = 2131099753;
+			
 			// aapt resource value: 0x7f06000d
 			public const int tabMode = 2131099661;
 			
-			// aapt resource value: 0x7f060082
-			public const int text = 2131099778;
+			// aapt resource value: 0x7f06008a
+			public const int text = 2131099786;
 			
-			// aapt resource value: 0x7f060080
-			public const int text2 = 2131099776;
+			// aapt resource value: 0x7f060088
+			public const int text2 = 2131099784;
 			
 			// aapt resource value: 0x7f06004d
 			public const int textSpacerNoButtons = 2131099725;
 			
-			// aapt resource value: 0x7f06007e
-			public const int time = 2131099774;
+			// aapt resource value: 0x7f060086
+			public const int time = 2131099782;
 			
 			// aapt resource value: 0x7f060043
 			public const int title = 2131099715;
@@ -2176,11 +2221,11 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060048
 			public const int title_template = 2131099720;
 			
-			// aapt resource value: 0x7f060076
-			public const int toolbar = 2131099766;
+			// aapt resource value: 0x7f06007e
+			public const int toolbar = 2131099774;
 			
-			// aapt resource value: 0x7f060085
-			public const int toolbar_title = 2131099781;
+			// aapt resource value: 0x7f06008d
+			public const int toolbar_title = 2131099789;
 			
 			// aapt resource value: 0x7f060032
 			public const int top = 2131099698;
@@ -2188,8 +2233,8 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f060047
 			public const int topPanel = 2131099719;
 			
-			// aapt resource value: 0x7f060069
-			public const int topRated = 2131099753;
+			// aapt resource value: 0x7f06006a
+			public const int topRated = 2131099754;
 			
 			// aapt resource value: 0x7f060009
 			public const int up = 2131099657;
@@ -2199,6 +2244,9 @@ namespace CEI.Droid
 			
 			// aapt resource value: 0x7f06000a
 			public const int view_offset_helper = 2131099658;
+			
+			// aapt resource value: 0x7f060078
+			public const int votes = 2131099768;
 			
 			// aapt resource value: 0x7f060021
 			public const int withText = 2131099681;
@@ -2423,7 +2471,10 @@ namespace CEI.Droid
 		{
 			
 			// aapt resource value: 0x7f0c0000
-			public const int menu_main = 2131492864;
+			public const int menu_detail = 2131492864;
+			
+			// aapt resource value: 0x7f0c0001
+			public const int menu_main = 2131492865;
 			
 			static Menu()
 			{
@@ -2504,8 +2555,17 @@ namespace CEI.Droid
 			// aapt resource value: 0x7f070019
 			public const int nowPlaying = 2131165209;
 			
+			// aapt resource value: 0x7f07001b
+			public const int playVideo = 2131165211;
+			
 			// aapt resource value: 0x7f070018
 			public const int popular = 2131165208;
+			
+			// aapt resource value: 0x7f07001c
+			public const int saveToFavorites = 2131165212;
+			
+			// aapt resource value: 0x7f07001a
+			public const int similarMovies = 2131165210;
 			
 			// aapt resource value: 0x7f070013
 			public const int status_bar_notification_info_overflow = 2131165203;
@@ -2996,6 +3056,9 @@ namespace CEI.Droid
 			
 			// aapt resource value: 0x7f090014
 			public const int Platform_Widget_AppCompat_Spinner = 2131296276;
+			
+			// aapt resource value: 0x7f090146
+			public const int RatingBar = 2131296582;
 			
 			// aapt resource value: 0x7f090021
 			public const int RtlOverlay_DialogWindowTitle_AppCompat = 2131296289;

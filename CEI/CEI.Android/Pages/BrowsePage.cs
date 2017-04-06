@@ -16,6 +16,8 @@ using System.Threading.Tasks;
 using Android.Support.V7.Widget;
 using CEI.Droid.Adapter;
 using CEI.Models;
+using Android.Support.V4.Widget;
+using CEI.Services;
 
 namespace CEI.Droid.Pages
 {
@@ -34,14 +36,16 @@ namespace CEI.Droid.Pages
         private ItemAdapter nowPlayingAdapter;
         private LinearLayoutManager nowPlayingManager;
 
+        private SwipeRefreshLayout swipeRefresh;
+
         public override PageType GetPageType()
         {
             return PageType.Browse;
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        public override void OnCreate(Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.browsePage, container, false);
+            base.OnCreate(savedInstanceState);
             viewModel = Locator.Get<BrowseViewModel>();
             if (viewModel == null)
             {
@@ -55,6 +59,14 @@ namespace CEI.Droid.Pages
                 });
             }
 
+            Activity.InvalidateOptionsMenu();
+        }
+
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            var view = inflater.Inflate(Resource.Layout.browsePage, container, false);
+
+
 
             topRated = view.FindViewById<RecyclerView>(Resource.Id.topRated);
             InitTopRatedRecyclerView();
@@ -66,6 +78,20 @@ namespace CEI.Droid.Pages
             nowPlaying = view.FindViewById<RecyclerView>(Resource.Id.nowPlaying);
             InitNowPlayingRecyclerView();
 
+            swipeRefresh = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeRefresh);
+            swipeRefresh.SetOnRefreshListener(new SwipeRefreshListener(async () =>
+            {
+                await viewModel.Refresh(() =>
+                {
+                    Locator.Get<IUIDispatcher>().RunOnUiThread(() =>
+                    {
+                        swipeRefresh.Refreshing = false;
+                        topRated.ScrollToPosition(0);
+                        popular.ScrollToPosition(0);
+                        nowPlaying.ScrollToPosition(0);
+                    });
+                });
+            }));
 
 
             return view;
@@ -132,6 +158,19 @@ namespace CEI.Droid.Pages
                     nowPlayingAdapter.AddItems(viewModel.NowPlayingMovies[viewModel.NowPlayingPage]);
                     break;
             }
+        }
+    }
+
+    public class SwipeRefreshListener : Java.Lang.Object, SwipeRefreshLayout.IOnRefreshListener
+    {
+        private readonly Action refresh;
+        public SwipeRefreshListener(Action action)
+        {
+            refresh = action;
+        }
+        public void OnRefresh()
+        {
+            refresh.Invoke();
         }
     }
 }

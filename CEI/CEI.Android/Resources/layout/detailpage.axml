@@ -2,28 +2,107 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-  <RelativeLayout
-    android:layout_height="0dp"
-    android:layout_width="match_parent"
-    android:layout_weight="4"
-    android:background="@color/white">
-
-  </RelativeLayout>
-
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+  <LinearLayout
+      android:layout_height="0dp"
+      android:layout_width="match_parent"
+      android:layout_weight="4"
+      android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="2dp">
+      <ImageView
+          android:id="@+id/poster"
+          android:layout_width="wrap_content"
+          android:layout_height="fill_parent"
+          android:scaleType="centerCrop"
+          android:background="@drawable/il"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="6"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp">
+      <TextView
+          android:layout_height="wrap_content"
+          android:id="@+id/originalTitle"
+          android:layout_width="match_parent"
+          android:textColor="@color/white"
+          android:textAppearance="?android:attr/textAppearanceMedium"/>
+      <TextView
+          android:layout_height="wrap_content"
+          android:id="@+id/releaseDate"
+          android:layout_width="match_parent"
+          android:textColor="@color/white"
+          android:textAppearance="?android:attr/textAppearanceSmall"/>
+      <RatingBar
+          android:id="@+id/ratingBar"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:numStars="5"
+          android:theme="@style/RatingBar"
+          android:progressDrawable="@drawable/ratingselector"
+           style="?android:attr/ratingBarStyleSmall"
+          android:stepSize=".1"/>
+      <TextView
+          android:layout_height="wrap_content"
+          android:id="@+id/votes"
+          android:layout_width="match_parent"
+          android:textColor="@color/white"
+          android:textAppearance="?android:attr/textAppearanceSmall"/>
+      <Button
+          android:id="@+id/play"
+          android:background="@color/playColor"
+          android:layout_height="wrap_content"
+          android:layout_width="wrap_content"
+          android:padding="4dp"
+          android:textSize="16sp"
+          android:textColor="@color/white"
+          android:text="@string/playVideo"
+          android:layout_marginBottom="5dp" />
+      <Button
+          android:id="@+id/favorite"
+          android:layout_height="wrap_content"
+          android:layout_width="wrap_content"
+          android:background="@color/favColor"
+          android:textColor="@color/white"
+          android:padding="4dp"
+          android:textSize="16sp"
+                />
+    </LinearLayout>
+  </LinearLayout>
   <TextView
-    android:layout_height="0dp"
-    android:id="@+id/overview"
-    android:layout_width="match_parent"
-    android:layout_weight="3"
-    />
+      android:layout_height="0dp"
+      android:id="@+id/overview"
+      android:layout_width="match_parent"
+      android:layout_weight="3"
+      android:textColor="@color/white"
+        />
 
-  <RelativeLayout
-    android:layout_height="0dp"
-    android:layout_width="match_parent"
-    android:layout_weight="3"
-    android:background="@color/white">
+  <LinearLayout
+      android:layout_height="0dp"
+      android:layout_width="match_parent"
+      android:layout_weight="3"
+      android:orientation="vertical"
+      android:layout_marginBottom="5dp">
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/similarMovies"
+        android:textColor="@color/white"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginBottom="2dp" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/similar"
+        android:scrollbars="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+  </LinearLayout>
 
-  </RelativeLayout>
 
 </LinearLayout>
